@@ -416,6 +416,7 @@ document.write(`
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">statsmodels</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
 <span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
@@ -460,76 +461,11 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/home/hamid/IV/docs/cleaned_data.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">])</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="n">df</span><span class="p">,</span> 
-<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Economy (GDP per Capita)&#39;</span><span class="p">,</span> 
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Happiness Score&#39;</span><span class="p">,</span> 
-<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Country&#39;</span><span class="p">,</span> 
-<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="n">trendline</span><span class="o">=</span><span class="s1">&#39;ols&#39;</span><span class="p">,</span> 
-<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="n">trendline_scope</span><span class="o">=</span><span class="s1">&#39;overall&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="n">trendline_color_override</span><span class="o">=</span><span class="s1">&#39;black&#39;</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">title</span><span class="o">=</span><span class="s2">&quot;De invloed van de economie op de Happiness Score&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="n">xaxis_title</span><span class="o">=</span><span class="s2">&quot;Economy (GDP per Capita)&quot;</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span>     <span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="nn">File ~/miniconda3/envs/jupyterbook/lib/python3.11/site-packages/plotly/express/_chart_types.py:66,</span> in <span class="ni">scatter</span><span class="nt">(data_frame, x, y, color, symbol, size, hover_name, hover_data, custom_data, text, facet_row, facet_col, facet_col_wrap, facet_row_spacing, facet_col_spacing, error_x, error_x_minus, error_y, error_y_minus, animation_frame, animation_group, category_orders, labels, orientation, color_discrete_sequence, color_discrete_map, color_continuous_scale, range_color, color_continuous_midpoint, symbol_sequence, symbol_map, opacity, size_max, marginal_x, marginal_y, trendline, trendline_options, trendline_color_override, trendline_scope, log_x, log_y, range_x, range_y, render_mode, title, template, width, height)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="k">def</span> <span class="nf">scatter</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">data_frame</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span>     <span class="n">height</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">61</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">63</span><span class="sd">     In a scatter plot, each row of `data_frame` is represented by a symbol</span>
-<span class="g g-Whitespace">     </span><span class="mi">64</span><span class="sd">     mark in 2D space.</span>
-<span class="g g-Whitespace">     </span><span class="mi">65</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">66</span>     <span class="k">return</span> <span class="n">make_figure</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="nb">locals</span><span class="p">(),</span> <span class="n">constructor</span><span class="o">=</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/envs/jupyterbook/lib/python3.11/site-packages/plotly/express/_core.py:2270,</span> in <span class="ni">make_figure</span><span class="nt">(args, constructor, trace_patch, layout_patch)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2268</span>             <span class="n">next_color</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">sequence</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">val_map</span><span class="p">)</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">sequence</span><span class="p">)]</span>
-<span class="g g-Whitespace">   </span><span class="mi">2269</span>             <span class="n">trendline_spec</span><span class="o">.</span><span class="n">trace_patch</span><span class="p">[</span><span class="s2">&quot;line&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">next_color</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2270</span> <span class="n">patch</span><span class="p">,</span> <span class="n">fit_results</span> <span class="o">=</span> <span class="n">make_trace_kwargs</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2271</span>     <span class="n">args</span><span class="p">,</span> <span class="n">trendline_spec</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="s2">&quot;data_frame&quot;</span><span class="p">],</span> <span class="p">{},</span> <span class="n">sizeref</span>
-<span class="g g-Whitespace">   </span><span class="mi">2272</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2273</span> <span class="n">trendline_trace</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">patch</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2274</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2275</span>     <span class="n">trendline_trace</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">exclude_empty_subplots</span><span class="o">=</span><span class="kc">True</span>
-<span class="g g-Whitespace">   </span><span class="mi">2276</span> <span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/envs/jupyterbook/lib/python3.11/site-packages/plotly/express/_core.py:359,</span> in <span class="ni">make_trace_kwargs</span><span class="nt">(args, trace_spec, trace_data, mapping_labels, sizeref)</span>
-<span class="g g-Whitespace">    </span><span class="mi">357</span> <span class="n">trace_patch</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sorted_trace_data</span><span class="p">[</span><span class="n">args</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]][</span><span class="n">non_missing</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">358</span> <span class="n">trendline_function</span> <span class="o">=</span> <span class="n">trendline_functions</span><span class="p">[</span><span class="n">attr_value</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">359</span> <span class="n">y_out</span><span class="p">,</span> <span class="n">hover_header</span><span class="p">,</span> <span class="n">fit_results</span> <span class="o">=</span> <span class="n">trendline_function</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">360</span>     <span class="n">args</span><span class="p">[</span><span class="s2">&quot;trendline_options&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">    </span><span class="mi">361</span>     <span class="n">sorted_trace_data</span><span class="p">[</span><span class="n">args</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]],</span>
-<span class="g g-Whitespace">    </span><span class="mi">362</span>     <span class="n">x</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">363</span>     <span class="n">y</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">364</span>     <span class="n">args</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">    </span><span class="mi">365</span>     <span class="n">args</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">    </span><span class="mi">366</span>     <span class="n">non_missing</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">367</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">368</span> <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_out</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">369</span>     <span class="n">trace_patch</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">370</span> <span class="p">),</span> <span class="s2">&quot;missing-data-handling failure in trendline code&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">371</span> <span class="n">trace_patch</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_out</span>
-
-<span class="nn">File ~/miniconda3/envs/jupyterbook/lib/python3.11/site-packages/plotly/express/trendline_functions/__init__.py:43,</span> in <span class="ni">ols</span><span class="nt">(trendline_options, x_raw, x, y, x_label, y_label, non_missing)</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span>     <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid_options</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span>             <span class="s2">&quot;OLS trendline_options keys must be one of [</span><span class="si">%s</span><span class="s2">] but got &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span>             <span class="o">%</span> <span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">valid_options</span><span class="p">),</span> <span class="n">k</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span>         <span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">43</span> <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="n">add_constant</span> <span class="o">=</span> <span class="n">trendline_options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;add_constant&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="n">log_x</span> <span class="o">=</span> <span class="n">trendline_options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;log_x&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">statsmodels</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;statsmodels&#39;
 </pre></div>
